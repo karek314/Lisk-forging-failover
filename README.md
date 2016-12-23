@@ -11,9 +11,12 @@ cd lisk-best-forger
 # Configuration
 Configure first passphrase in this config if you are not using it along with [karek314/liskpool](https://github.com/karek314/liskpool)
 Then add trusted nodes and it's ports. Each specified server needs to have whitelisted IP address of server which will be used to run this script. As described [here](https://lisk.io/documentation?i=lisk-docs/BinaryInstall).
-```php
+<pre>
 nano config.php
+</pre>
 
+config.php
+```php
 $lisknodes = array(0 => 'localhost',1 => 'another',2 => 'another',3 => 'another');
 $liskports = array(0 => '8001',1 => '8001',2 => '8001',3 => '8001');
 $config = include('../../config.php');
