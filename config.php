@@ -13,7 +13,7 @@ return array(
 	'lisk_host' => $lisknodes,
 	'lisk_port' => $liskports,
 	'protocol' => 'https',
-	'daemon_interval' => '0.25',
+	'daemon_interval' => '10',
 	'secret' => $secret1,
 );
 ?>
