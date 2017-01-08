@@ -89,7 +89,7 @@ while(1) {
     $time_sleep = 0;
   }
   echo "\n".'Took:'.$took.' sleep:'.$time_sleep;
-  usleep($time_sleep*1000);
+  usleep($time_sleep*1000000);
 }
 
 
