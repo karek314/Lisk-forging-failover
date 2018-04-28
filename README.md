@@ -15,7 +15,7 @@ bash setup.sh
 # Configuration
 Configuration guide will be very detailed, if you understand exactly how to enable forging, skim it.<br>
 ### Lisk-PHP
-Installed script, <b>setup.sh</b> will install lisk-php in upper directory from <b>Lisk-forging-failover</b>.<br>
+Script <b>setup.sh</b> will install lisk-php in upper directory from <b>Lisk-forging-failover</b>.<br>
 From this directory navigate to lisk-php
 ```sh
 cd ..
@@ -23,7 +23,7 @@ cd lisk-php
 php lisk-cli.php help
 ```
 ### Encrypt passphrase
-We now need to encrypt passphrase in order to place AES256-GCM encrypted string in each liskcore node configuration file.<br>
+We now need to encrypt passphrase in order to place AES256-GCM encrypted string in each lisk core node configuration file.<br>
 First parameter is your first delegate account passphrase, second is password or phrase used to decrypt passphrase upon request. Longer better.
 ```sh
 php lisk-cli.php EncryptPassphrase "Passphrase" "password"
@@ -80,7 +80,7 @@ Then replace ip <b>123.123.123.123</b> with ip of server running <b>Lisk-forging
                     	"whiteList": ["127.0.0.1","123.123.123.123"]
                 }
 ```
-<b>ssl</b> section, set <b>enabled</b> to <b>true</b>, change <b>port</b> to <b>4009</b> and make sure path that <b>key</b> and <b>cert</b> contains two dots <b>"../ssl/"</b>
+<b>ssl</b> section, set <b>enabled</b> to <b>true</b>, change <b>port</b> to <b>4009</b> and make sure that paths in <b>key</b> and <b>cert</b> contain two dots <b>"../ssl/"</b>
 ```json
    "ssl": {
            "enabled": true,
@@ -100,8 +100,12 @@ mkdir ssl
 cd ssl
 openssl req -x509 -nodes -days 9999 -newkey rsa:2048 -keyout lisk.key -out lisk.crt
 ```
+Then start Lisk core and make sure it started correctly,
+```sh
+bash lisk.sh start && bash lisk.sh logs
+```
 ### Repeat
-Repeat Lisk core configuration to as many nodes you need, but it's good to keep it around 3. There is not really a need for more than one master and 2 fallbacks.
+Repeat Lisk core configuration procedure in as many nodes you need, but it's good to keep it around 3. There is not really a need for more than one master and 2 fallback servers.
 
 # Usage
 Testing and starting script
@@ -109,8 +113,8 @@ Testing and starting script
 cd Lisk-forging-failover
 php forge.php
 ```
-```sh
 Essentially output should look similar to
+```sh
 [0] Forging failover script starts...
 [1] Primary forging node: 127.0.0.1:4009
 [1] Forging Nodes count:3
@@ -145,7 +149,7 @@ Accessing screen session
 ```sh
 screen -x forge
 ```
-To leave active session, <b>Ctrl+A+D</b> to detach, <b>Ctrl+D</b> to terminate.
+To leave active session, <b>Ctrl+A+D</b> to detach, <b>Ctrl+D</b> to terminate. This script can be added to crontab to ensure autostart.
 
 # Safety
 To ensure forging safety, if you unintentionally close script or when ssh connection hangs up, script will automatically terminate forging on all nodes before exiting. Below example of <b>Ctrl+C</b>
