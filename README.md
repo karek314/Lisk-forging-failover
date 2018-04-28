@@ -1,6 +1,6 @@
 # Lisk-forging-failover
 Simple way to achieve perfect productivity while avoiding double forging in Lisk DPoS, written in PHP.
-It's designed with safe practises in mind. Script evaluate most stable and synced node from provided list and make sure only this one is forging. Additionally it will ensure terminating forging if script will be closed or terminal connection hang up. (Upon signals - <b>SIGTERM,SIGHUP,SIGINT</b>). It's also using secure forging with AES256-GCM introduced in Lisk 1.0.0.
+It's designed with safe practices in mind. Script evaluate most stable and synced node from provided list and make sure only this one is forging. Additionally it will ensure terminating forging if script will be closed or terminal connection hang up. (Upon signals - <b>SIGTERM,SIGHUP,SIGINT</b>). It's also using secure forging with AES256-GCM introduced in Lisk 1.0.0.
 
 It's compatible with <b>Lisk 1.0.0 Core and up</b>, if you are looking for previous versions please check legacy branch.
 
