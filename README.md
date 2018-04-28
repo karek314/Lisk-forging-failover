@@ -22,6 +22,7 @@ cd ..
 cd lisk-php
 php lisk-cli.php help
 ```
+More details in [lisk-php](https://github.com/karek314/lisk-php) repository.
 ### Encrypt passphrase
 We now need to encrypt passphrase in order to place AES256-GCM encrypted string in each lisk core node configuration file.<br>
 First parameter is your first delegate account passphrase, second is password or phrase used to decrypt passphrase upon request. Longer better.
