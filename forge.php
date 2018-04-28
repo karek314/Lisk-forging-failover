@@ -78,7 +78,7 @@ while(1) {
     }
     if ($newForgedId) {
       $prediectedNode = getServer($newForgedId,$GLOBALS['ForgingNodes'],$GLOBALS['protocol']);
-      clog("[".$df."] After evaulation best node to forging appears to be: ".$prediectedNode." with id:".$newForgedId,SERVICE_NAME);
+      clog("[".$df."] After evaluation best node to forging appears to be: ".$prediectedNode." with id:".$newForgedId,SERVICE_NAME);
       if (!$lastForgingId || $lastForgingId != $newForgedId) {
         clog("[".$df."] Checking if node is forging already",SERVICE_NAME);
         $isPredictedNodeForging = isForging(ForgingStatus($GLOBALS['PublicKey'],$prediectedNode));
