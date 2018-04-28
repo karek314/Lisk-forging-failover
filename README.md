@@ -1,6 +1,9 @@
 # lisk-best-forger
-Simple background script to forge on the currently the best synced node.<br>
-Clear and simple approach to achieve 99% and better productivity while forging in Lisk DPoS, written in PHP.
+Backgrund script to maintain forging only on synced nodes<br>
+Simple way to achieve perfect productivity while avoiding double forging in Lisk DPoS, written in PHP.
+
+<b>Master branch</b> from and after 1.0.0 version of lisk core.
+<b>Legacy branch</b>  - before 1.0.0
 
 # Installation
 <pre>
