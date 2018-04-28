@@ -2,7 +2,11 @@
 Backgrund script to maintain forging only on synced nodes<br>
 Simple way to achieve perfect productivity while avoiding double forging in Lisk DPoS, written in PHP.
 
+<<<<<<< HEAD
 <b>Master branch</b> from and after 1.0.0 version of lisk core.
+=======
+<b>Master branch</b> from and after 1.0.0 version of lisk core.<br>
+>>>>>>> e4b53e78482ad90f1f302908a819de87118c430e
 <b>Legacy branch</b>  - before 1.0.0
 
 # Installation
