@@ -25,7 +25,7 @@ while(1) {
   $newForgedId = false;
   $start_time = time();
   $df++;
-  clog("[".$df."] Primary forging node: ".$GLOBALS['ForgingNodes'][0],SERVICE_NAME);
+  clog("[".$df."] Primary forging node: ".$GLOBALS['ForgingNodes'][max(array_keys($GLOBALS['ForgingNodes']))],SERVICE_NAME);
   $NodesCount = count($GLOBALS['ForgingNodes']);
   clog("[".$df."] Forging Nodes count:".$NodesCount,SERVICE_NAME);
 
