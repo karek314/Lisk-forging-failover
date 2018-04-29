@@ -157,7 +157,9 @@ screen -x forge
 To leave active session, <b>Ctrl+A+D</b> to detach, <b>Ctrl+D</b> to terminate. This script can be added to crontab to ensure autostart.
 
 # Safety
-To ensure forging safety, if you unintentionally close script or when ssh connection hangs up, script will automatically terminate forging on all nodes before exiting. Below example of <b>Ctrl+C</b>
+To ensure forging safety, if you unintentionally close script or when ssh connection hangs up, script will automatically terminate forging on all nodes before exiting. However it's worth to clarify that ssh connection hang up, will only affect current task executed in current session, meaning ``` php forge.php ```, but if you will run script in background using ``` screen -dmS forge php forge.php ``` connection hang up will not affect forging, script will continue executing in background.
+
+Below example of <b>Ctrl+C</b>
 ```sh
 [28] After evaluation best node to forging appears to be: https://127.0.0.1:4009/ with id:2
 [28] Doing nothing, predicted node is the same as currently forging
