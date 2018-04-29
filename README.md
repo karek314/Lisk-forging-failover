@@ -27,11 +27,15 @@ More details in [lisk-php](https://github.com/karek314/lisk-php) repository.
 We now need to encrypt passphrase in order to place AES256-GCM encrypted string in each lisk core node configuration file.<br>
 First parameter is your first delegate account passphrase, second is password or phrase used to decrypt passphrase upon request. Longer better.
 ```sh
-php lisk-cli.php EncryptPassphrase "Passphrase" "password"
+php lisk-cli.php EncryptPassphrase "Passphrase" "password" OptionalNumberOfSaltIterations
 ```
-Example
+Example with default salting iterations
 ```sh
 php lisk-cli.php EncryptPassphrase "coyote cancel access fresh soccer club subject salad veteran sheriff laundry square" "VeryHardAndLongPassword128319239123"
+```
+Example with custom salting iterations, for more info see: [this issue on lisk-php repository](https://github.com/karek314/lisk-php/issues/4).
+```sh
+php lisk-cli.php EncryptPassphrase "coyote cancel access fresh soccer club subject salad veteran sheriff laundry square" "VeryHardAndLongPassword128319239123" 2500
 ```
 It will return prepared json string
 ```sh
