@@ -40,7 +40,7 @@ php lisk-cli.php EncryptPassphrase "coyote cancel access fresh soccer club subje
 It will return prepared json string
 ```sh
 Json->
-{"publicKey":"a570aa6d9bfe8aa2ada142053426d07e0e8da28a6d0cb3a1d856d7f17156ae0b","encryptedSecret":"iterations=1&salt=0d1574a91e45fde38967153052fdb748&cipherText=5bada3a9fefba2e8a067c1ef761622a15ca092f17fead0aa3b1fdffee59422ffbae120cfbe59693f82f6075e38123884b5c3fa959fd34a8d6306c5a67a4caf0a17094024349880ca8825ef048d3641ee5a7f85&iv=787c6e0d160d95b3867a79c1&tag=6f44977c659a00d2f3dad383167501ea&version=1"}
+{"publicKey":"a570aa6d9bfe8aa2ada142053426d07e0e8da28a6d0cb3a1d856d7f17156ae0b","encryptedPassphrase":"iterations=1&salt=0d1574a91e45fde38967153052fdb748&cipherText=5bada3a9fefba2e8a067c1ef761622a15ca092f17fead0aa3b1fdffee59422ffbae120cfbe59693f82f6075e38123884b5c3fa959fd34a8d6306c5a67a4caf0a17094024349880ca8825ef048d3641ee5a7f85&iv=787c6e0d160d95b3867a79c1&tag=6f44977c659a00d2f3dad383167501ea&version=1"}
 ```
 ### Configuring config.php
 Now we need to configure servers which will be forging, navigate to <b>Lisk-forging-failover</b> and edit ```config.php``` first server in this config will always have forging priority and other servers can be considered as fallback. Please also change <b>PublicKey</b> and <b>DecryptionPhrase</b>.
@@ -79,7 +79,7 @@ Then replace ip <b>123.123.123.123</b> with ip of server running <b>Lisk-forging
 ```json
 "forging": {
              "force": false,
-             "secret": [{"publicKey":"a570aa6d9bfe8aa2ada142053426d07e0e8da28a6d0cb3a1d856d7f17156ae0b","encryptedSecret":"iterations=1&salt=0d1574a91e45fde38967153052fdb748&cipherText=5bada3a9fefba2e8a067c1ef761622a15ca092f17fead0aa3b1fdffee59422ffbae120cfbe59693f82f6075e38123884b5c3fa959fd34a8d6306c5a67a4caf0a17094024349880ca8825ef048d3641ee5a7f85&iv=787c6e0d160d95b3867a79c1&tag=6f44977c659a00d2f3dad383167501ea&version=1"}
+             "secret": [{"publicKey":"a570aa6d9bfe8aa2ada142053426d07e0e8da28a6d0cb3a1d856d7f17156ae0b","encryptedPassphrase":"iterations=1&salt=0d1574a91e45fde38967153052fdb748&cipherText=5bada3a9fefba2e8a067c1ef761622a15ca092f17fead0aa3b1fdffee59422ffbae120cfbe59693f82f6075e38123884b5c3fa959fd34a8d6306c5a67a4caf0a17094024349880ca8825ef048d3641ee5a7f85&iv=787c6e0d160d95b3867a79c1&tag=6f44977c659a00d2f3dad383167501ea&version=1"}
 ],
               "access": {
                     	"whiteList": ["127.0.0.1","123.123.123.123"]
