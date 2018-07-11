@@ -90,7 +90,7 @@ while(1) {
           clog("[".$df."] Finally enabling forging on selected node.",SERVICE_NAME);
           while ($isPredictedNodeForging == 'no') {
             $lastForgingId = $newForgedId;
-            $isPredictedNodeForging = isForging(ToggleForging($GLOBALS['DecryptionPhrase'],$GLOBALS['PublicKey'],$prediectedNode));
+            $isPredictedNodeForging = isForging(ToggleForging(true,$GLOBALS['DecryptionPhrase'],$GLOBALS['PublicKey'],$prediectedNode));
             clog("[".$df."] IsPredictedNodeForging: ".$isPredictedNodeForging,SERVICE_NAME);
           }
         }
@@ -110,7 +110,7 @@ while(1) {
     clog("[".$df."] ".$serverAddress." -> Height:".$height." Consensus:".$consensus."% IsForging:".$isForging,SERVICE_NAME);
     if ($isForging != "yes") {
       clog("[".$df."] Enable forging",SERVICE_NAME);
-      $isForgingAfterToggle = isForging(ToggleForging($GLOBALS['DecryptionPhrase'],$GLOBALS['PublicKey'],$serverAddress));
+      $isForgingAfterToggle = isForging(ToggleForging(true,$GLOBALS['DecryptionPhrase'],$GLOBALS['PublicKey'],$serverAddress));
       clog("[".$df."] Is forging enabled: ".$isForgingAfterToggle,SERVICE_NAME);
     }
   }
@@ -131,7 +131,7 @@ function DisableForgingOnAllNodes($df=0){
     clog("[".$df."] ".$serverAddress." -> IsForging: ".$isForging,SERVICE_NAME);
     while ($isForging == 'yes') {
       clog("[".$df."] Disable forging",SERVICE_NAME);
-      $isForging = isForging(ToggleForging($GLOBALS['DecryptionPhrase'],$GLOBALS['PublicKey'],$serverAddress));
+      $isForging = isForging(ToggleForging(false,$GLOBALS['DecryptionPhrase'],$GLOBALS['PublicKey'],$serverAddress));
       clog("[".$df."] IsForging: ".$isForging,SERVICE_NAME);
     }
   }
