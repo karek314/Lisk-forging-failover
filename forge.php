@@ -11,7 +11,7 @@ if (!file_exists('../lisk-php/main.php')) {
 require_once('../lisk-php/main.php');
 require_once('logging.php');
 const SERVICE_NAME = "forging";
-const FORGING_NODE_NOT_ALLOCATED = -125
+const FORGING_NODE_NOT_ALLOCATED = -125;
 $df = 0;
 $GLOBALS['protocol'] = $config['protocol'];
 $GLOBALS['daemon_interval'] = $config['daemon_interval'];
