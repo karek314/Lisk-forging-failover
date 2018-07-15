@@ -83,6 +83,7 @@ while(1) {
         clog("[".$df."] Checking if node is forging already",SERVICE_NAME);
         $isPredictedNodeForging = isForging(ForgingStatus($GLOBALS['PublicKey'],$prediectedNode));
         if ($isPredictedNodeForging == 'yes') {
+          $lastForgingId = $newForgedId;
           clog("[".$df."] Selected Node is already forging!",SERVICE_NAME);
         } else {
           clog("[".$df."] Forging disabled on this node, as precaution lets make sure all other nodes are not forging as well.",SERVICE_NAME);
