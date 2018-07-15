@@ -46,8 +46,12 @@ while(1) {
       array_push($consensusArray, $consensus);
       clog("[".$df."] ".$serverAddress." -> Height:".$height." Consensus:".$consensus."%",SERVICE_NAME);
     }
+    echo "\nHeightArray->";var_dump($heightArray);
+    echo "\nConsensusArray->";var_dump($consensusArray);
     $IsHeightUnique = isArrayUnique($heightArray);
     $IsConsensusUnique = isArrayUnique($consensusArray);
+    echo "\nIsHeightUnique->";var_dump($IsHeightUnique);
+    echo "\nIsConsensusUnique->";var_dump($IsConsensusUnique);
     if ($IsHeightUnique) {
       $BestHeightValue = max($heightArray);
       $BestHeightKey = array_search($BestHeightValue, $heightArray);
@@ -63,19 +67,23 @@ while(1) {
       clog("[".$df."] Consensus is the same",SERVICE_NAME);
     }
     if ($IsHeightUnique && $IsConsensusUnique) {
+      echo "\nConsensus and height unique";
       if ($BestHeightKey == $BestConsensusKey) {
+        echo "\nNewForgingID should be allocated to:".$BestConsensusKey;
         $newForgedId = $BestConsensusKey;
       }
     } else if (!$IsHeightUnique && !$IsConsensusUnique){
       $newForgedId = max(array_keys($GLOBALS['ForgingNodes']));
       clog("[".$df."] Identical sync on all nodes, picking master node.",SERVICE_NAME);
     } else {
+      echo "\nSync is unique";
       if ($IsHeightUnique) {
         $newForgedId = $BestHeightKey;
       } else if ($IsConsensusUnique) {
         $newForgedId = $BestConsensusKey;
       }
     }
+    echo "\nNewForgedID->";var_dump($newForgedId);
     if ($newForgedId) {
       $prediectedNode = getServer($newForgedId,$GLOBALS['ForgingNodes'],$GLOBALS['protocol']);
       clog("[".$df."] After evaluation best node to forging appears to be: ".$prediectedNode." with id:".$newForgedId,SERVICE_NAME);
