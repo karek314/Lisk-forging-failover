@@ -15,6 +15,7 @@ const FORGING_NODE_NOT_ALLOCATED = -125;
 $df = 0;
 $GLOBALS['protocol'] = $config['protocol'];
 $GLOBALS['daemon_interval'] = $config['daemon_interval'];
+$GLOBALS['acceptable_consensus_variation'] = (int)$config['acceptable_consensus_variation'];
 $GLOBALS['PublicKey'] = $config['PublicKey'];
 $GLOBALS['DecryptionPhrase'] = $config['DecryptionPhrase'];
 $GLOBALS['ForgingNodes'] = $config['nodes'];
@@ -62,6 +63,17 @@ while(1) {
       clog("[".$df."] Best Consensus id:".$BestConsensusKey." with value:".$BestConsensusValue,SERVICE_NAME);
     } else {
       clog("[".$df."] Consensus is the same",SERVICE_NAME);
+    }
+    if ($lastForgingId != FORGING_NODE_NOT_ALLOCATED) {
+      $ConsensusOfCurrentNode = $consensusArray[$lastForgingId];
+      $difference = abs($ConsensusOfCurrentNode-$BestConsensusValue);
+      clog("[".$df."] Current consensus difference:".$difference,SERVICE_NAME);
+      if ($difference < $GLOBALS['acceptable_consensus_variation']) {
+        clog("[".$df."] Disregarding consensus because lack of variation",SERVICE_NAME);
+        $IsConsensusUnique = false;
+      } else {
+        clog("[".$df."] Reasonable consensus difference reached",SERVICE_NAME);
+      }
     }
     if ($IsHeightUnique && $IsConsensusUnique) {
       if ($BestHeightKey == $BestConsensusKey) {
