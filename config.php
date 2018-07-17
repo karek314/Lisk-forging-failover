@@ -1,7 +1,6 @@
 <?php
 
-$nodes = array('127.0.0.1:4009','123.101.120.123:4009');
-$nodes = array_reverse($nodes);
+$nodes = array_reverse(array('127.0.0.1:4009','123.101.120.123:4009'));
 
 return array(
 	'nodes' => $nodes,
