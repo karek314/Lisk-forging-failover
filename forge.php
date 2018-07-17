@@ -64,7 +64,7 @@ while(1) {
     } else {
       clog("[".$df."] Consensus is the same",SERVICE_NAME);
     }
-    if ($lastForgingId != FORGING_NODE_NOT_ALLOCATED) {
+    if ($lastForgingId != FORGING_NODE_NOT_ALLOCATED && $IsConsensusUnique) {
       $ConsensusOfCurrentNode = $consensusArray[$lastForgingId];
       $difference = abs($ConsensusOfCurrentNode-$BestConsensusValue);
       clog("[".$df."] Current consensus difference between currently selected node and currently best consensus:".$difference,SERVICE_NAME);
