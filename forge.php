@@ -193,21 +193,21 @@ function handleSigHup(){
   clog("Caught SIGHUP, terminating forging on all nodes and exiting this script...",SERVICE_NAME);
   DisableForgingOnAllNodes();
   echo "\n\n";
-  exit(1);
+  exit(SIGKILL);
 }
 
 function handleSigInt(){
   clog("Caught SIGINT, terminating forging on all nodes and exiting this script...",SERVICE_NAME);
   DisableForgingOnAllNodes();
   echo "\n\n";
-  exit(1);
+  exit(SIGKILL);
 }
 
 function handleSigTerm(){
   clog("Caught SIGTERM, terminating forging on all nodes and exiting this script...",SERVICE_NAME);
   DisableForgingOnAllNodes();
   echo "\n\n";
-  exit(1);
+  exit(SIGKILL);
 }
 
 function csleep($wait_time){
