@@ -154,7 +154,7 @@ Accessing screen session
 ```sh
 screen -x forge
 ```
-To leave active session, <b>Ctrl+A+D</b> to detach, <b>Ctrl+D</b> to terminate. This script can be added to crontab to ensure autostart.
+To leave active session, <b>Ctrl-A-D</b> to detach, <b>Ctrl-D</b> to terminate. This script can be added to crontab to ensure autostart.
 
 # Safety
 To ensure forging safety, if you unintentionally close script or when ssh connection hangs up, script will automatically terminate forging on all nodes before exiting. However it's worth to clarify that ssh connection hang up, will only affect current task executed in current session, meaning ``` php forge.php ```, but if you will run script in background using ``` screen -dmS forge php forge.php ``` connection hang up will not affect forging, script will continue executing in background.
